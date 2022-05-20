@@ -1,17 +1,16 @@
-<div class="my-header">
-  <h2> Best TV Shows </h2>
-</div>
 <table class="movie-table">
   <thead>
   <tr>
     <th></th>
-    <th>Title</th>
+    <th >Title</th>
     <th>Overview</th>
     <th>Rating</th>
+    <th>Your comment</th>
   </tr>
   </thead>
   <tbody>
-    <% @movies.each do |movie| %>
+    <% @list.bookmarks.each do |bookmark| %>
+    <% movie = bookmark.movie %>
       <tr>
         <td><%= link_to movie_path(movie) do %>
           <%= image_tag movie.poster_url, alt: movie.title, width: 100 %></td>
@@ -20,10 +19,15 @@
         <td><%= link_to title, movie_path(movie) %></td>
         <td>
           <% movie.overview = movie.overview.gsub(/(<p>|<\/p>)/, " ").strip %>
-          <div><%= truncate(movie.overview, length:220, separator: ' ') %></div>
+          <div><%= truncate(movie.overview, length:200, separator: ' ') %></div>
         </td>
         <td><i class="fa-solid fa-star"></i><%= movie.rating %></td>
+        <td><%= bookmark.comment %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<turbo-frame id="add-bookmark">
+  <%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+</turbo-frame>

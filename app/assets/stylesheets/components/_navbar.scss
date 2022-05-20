@@ -1,12 +1,14 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+#navbar-override {
+  background-color: #F6F6F5;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  z-index: 6;
+  position: sticky;
+  top: 0px;
+  align-items: baseline;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#navbar-override > h6.active > a {
+  color: #2f2f5684;
+  text-decoration: underline;
+  font-size: larger;
 }

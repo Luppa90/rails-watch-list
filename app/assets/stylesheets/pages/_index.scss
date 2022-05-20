@@ -1,2 +1,52 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body {
+  margin: 20px;
+}
+
+.movie-table {
+  margin: auto;
+}
+
+.movie-card {
+  max-width: 60%;
+  margin: auto;
+  background-color: #F6F6F5;
+  padding: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+td {
+  text-align: center;
+  height: 110px;
+}
+
+td > div {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+tr:nth-child(odd) {
+  background-color: #F6F6F5;
+}
+
+tr:nth-child(even) {
+  background-color: #FBFBFB;
+}
+
+th {
+  text-align: center;
+  min-width: 80px;
+  height: 50px;
+}
+
+:any-link {
+  text-decoration: none;
+}
+
+.fa-star {
+  color: orange;
+}

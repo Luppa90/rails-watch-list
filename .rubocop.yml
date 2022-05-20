@@ -14,5 +14,5 @@ StringLiterals:
 FrozenStringLiteralComment:
   Enabled: false
 
-Documnetation:
+Documentation:
   Enabled: false

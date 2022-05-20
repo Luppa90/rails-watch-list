@@ -10,3 +10,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  position: static;
+  width: auto;
+  margin: auto;
+  min-width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(#e6e6e1, #f1f0ea);
+  z-index: 1;
+}
+
+.page-content {
+  max-width: 1040px;
+  margin: auto;
+}

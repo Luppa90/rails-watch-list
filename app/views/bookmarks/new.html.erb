@@ -1,0 +1,7 @@
+<turbo-frame id="add-bookmark">
+  <%= simple_form_for [ @list, @bookmark ] do |f| %>
+    <%= f.input :comment, placeholder: 'Add your comment' %>
+    <%= f.association :movie %>
+    <%= f.button :submit %>
+  <% end %>
+</turbo-frame>

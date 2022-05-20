@@ -11,13 +11,29 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand">Navbar</a>
-    <form class="form-inline">
+  <nav id="navbar-override" class="navbar navbar-light bg-light justify-content-around">
+    <a class="navbar-brand ml-1">MyMovies</a>
+    <h6 class="<%= 'active' if params[:controller] == 'movies' %>"><%= link_to "Movies", movies_path %></h6>
+    <h6 class="<%= 'active' if params[:controller] == 'lists' %>"><%= link_to "Lists", lists_path %></h6>
+    <form class="form-inline d-flex">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </nav>
+  <div class="page-content">
     <%= yield %>
+  </div>
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+    </div>
+  </div>
   </body>
 </html>

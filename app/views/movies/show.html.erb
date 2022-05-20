@@ -1,0 +1,13 @@
+<div class="movie-card">
+  <div class="d-flex flex-inline align-items-baseline">
+    <h2><%= @movie.title %></h2>
+    <h2>&nbsp<%= "(#{@movie.release_year})" %></h2>
+  </div>
+  <div class="d-flex flex-inline align-items-center">
+    <%= image_tag @movie.poster_url, alt: @movie.title, width: 300 %>
+    <div class="p-4">
+      <% @movie.overview = @movie.overview.gsub(/(<p>|<\/p>)/, " ").strip %>
+      <p><%= @movie.overview %></p>
+    </div>
+  </div>
+</div>

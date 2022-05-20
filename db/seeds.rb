@@ -8,10 +8,22 @@
 require "json"
 require "open-uri"
 
-movies_serialized = URI.open("https://tmdb.lewagon.com/movie/top_rated").read
+movies_serialized = URI.open("https://imdb-api.com/en/API/Top250TVs/k_5g2d8hyz").read
 movies = JSON.parse(movies_serialized)
-movies = movies["results"]
-movies.first(9).each do |movie|
-  poster_path = movie["poster_path"]
-  Movie.create(title: movie["original_title"], overview: movie["overview"], poster_url: "https://image.tmdb.org/t/p/w500/#{poster_path}", rating: movie["vote_average"] )
+movies = movies["items"]
+movies.first(92).each do |movie|
+  imdb_id = movie["id"]
+  plot_serialized = URI.open("https://imdb-api.com/en/API/Wikipedia/k_5g2d8hyz/#{imdb_id}").read
+  plot = JSON.parse(plot_serialized)
+  plot = plot["plotShort"]["plainText"]
+  Movie.create(title: movie["title"],
+               overview: plot,
+               poster_url: movie["image"],
+               rating: movie["imDbRating"],
+               release_year: movie["year"],
+               language: "en")
+end
+
+3.times do
+  List.create(name: Faker::Book.unique.title)
 end
